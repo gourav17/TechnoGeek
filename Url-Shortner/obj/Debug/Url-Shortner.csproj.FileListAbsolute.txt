@@ -1,0 +1,2 @@
+D:\Home\Study\Code\Url-Shortner\Url-Shortner\obj\Debug\Url-Shortner.csprojAssemblyReference.cache
+D:\Home\Study\Code\Url-Shortner\Url-Shortner\obj\Debug\Url-Shortner.csproj.CoreCompileInputs.cache
