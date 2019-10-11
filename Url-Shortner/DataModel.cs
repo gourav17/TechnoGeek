@@ -16,8 +16,8 @@ namespace Url_Shortner
         public DataModelContext()
             : base("name=urlDbContext")
         {
-            this.Configuration.LazyLoadingEnabled = false;
-            this.Configuration.ProxyCreationEnabled = false;
+           // this.Configuration.LazyLoadingEnabled = false;
+         
         }
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 

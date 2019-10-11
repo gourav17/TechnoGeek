@@ -240,6 +240,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Class\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>

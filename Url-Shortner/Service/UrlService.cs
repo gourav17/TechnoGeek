@@ -31,7 +31,7 @@ namespace Url_Shortner.Service
             #region Generate a new code first
             Random rnd = new Random();
             urlData.urlID = rnd.GetHashCode(); //NewCode();
-            
+
             #endregion
             urlData.longURL = longUrl;
             urlData.shortURL = "shorturl";

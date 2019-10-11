@@ -29,12 +29,9 @@ namespace Url_Shortner.Controllers
             {
 
                 UrlPairDto shortUrl = urlService.makeShort(url);
-                //var urlModel = url.ToUrlDto();
-
-                //HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Redirect, shortUrl);
-
-                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, shortUrl);
-                return Ok(response);
+              
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, shortUrl);
+                return ResponseMessage(response);
             }
         }
 
@@ -54,12 +51,9 @@ namespace Url_Shortner.Controllers
             {
 
                 UrlPairDto urlPairDto = urlService.Read(url);
-                //var urlModel = url.ToUrlDto();
-
-                //HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Redirect, shortUrl);
-
-                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, urlPairDto.longURL);
-                return Ok(response);
+           
+             //   HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, urlPairDto);
+                return Ok(urlPairDto);
             }
         }
 
@@ -80,10 +74,7 @@ namespace Url_Shortner.Controllers
             {
 
                 UrlPairDto urlDataDto = urlService.Read(url);
-                //var urlModel = url.ToUrlDto();
-
-                //HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Redirect, shortUrl);
-
+              
                // HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Redirect, urlDataDto.longURL);
                 return Redirect(urlDataDto.longURL);
             }
