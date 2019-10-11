@@ -14,14 +14,16 @@ namespace Url_Shortner
         // If you wish to target a different database and/or database provider, modify the 'DataModel' 
         // connection string in the application configuration file.
         public DataModelContext()
-            : base("name=DataModelContext")
+            : base("name=urlDbContext")
         {
+            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
         }
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 
-         public virtual DbSet<UrlPair> UrlTable { get; set; }
+        public virtual DbSet<UrlPair> UrlTable { get; set; }
     }
 
     //public class MyEntity

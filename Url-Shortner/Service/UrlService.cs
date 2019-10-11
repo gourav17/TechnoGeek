@@ -45,16 +45,16 @@ namespace Url_Shortner.Service
         #endregion
 
         #region Read
-        public UrlPair Read(int urlID)
+        public UrlPairDto Read(string shortUrl)
         {
-            if (urlID == default(int))
+            if (shortUrl == default(string))
             {
-                throw new ArgumentNullException(nameof(urlID));
+                throw new ArgumentNullException(nameof(shortUrl));
             }
 
-            UrlPair urlData = urlDbContext.UrlTable.Where(x => x.urlID == urlID).FirstOrDefault();
+            UrlPair urlData = urlDbContext.UrlTable.Where(x => x.shortURL == shortUrl).FirstOrDefault();
 
-            return urlData;
+            return urlData.ToUrlDto();
         }
         #endregion
 

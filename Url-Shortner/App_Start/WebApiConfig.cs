@@ -9,6 +9,12 @@ namespace Url_Shortner
     {
         public static void Register(HttpConfiguration config)
         {
+
+            // Add specific Json converter/formetters
+            var json = config.Formatters.JsonFormatter;
+            json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+
             // Web API configuration and services
 
             // Web API routes

@@ -89,3 +89,4 @@ D:\Home\Study\Code\Url-Shortner\Url-Shortner\bin\AutoMapper.dll
 D:\Home\Study\Code\Url-Shortner\Url-Shortner\bin\AutoMapper.pdb
 D:\Home\Study\Code\Url-Shortner\Url-Shortner\bin\AutoMapper.xml
 D:\Home\Study\Code\Url-Shortner\Url-Shortner\obj\Debug\Url-Shortner.csprojAssemblyReference.cache
+D:\Home\Study\Code\Url-Shortner\Url-Shortner\obj\Debug\Url_Shortner.Migrations.updateddb.resources

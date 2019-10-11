@@ -165,6 +165,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UrlController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataModel.cs" />
@@ -175,6 +176,10 @@
     <Compile Include="Migrations\201910110621295_urlkeydata.cs" />
     <Compile Include="Migrations\201910110621295_urlkeydata.Designer.cs">
       <DependentUpon>201910110621295_urlkeydata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910110843219_updated db.cs" />
+    <Compile Include="Migrations\201910110843219_updated db.Designer.cs">
+      <DependentUpon>201910110843219_updated db.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\UrlPair.cs" />
@@ -269,6 +274,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201910110621295_urlkeydata.resx">
       <DependentUpon>201910110621295_urlkeydata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910110843219_updated db.resx">
+      <DependentUpon>201910110843219_updated db.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
