@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Web.Http;
 using Url_Shortner.Service;
+using Url_Shortner.DataTransferObject;
 
 namespace Url_Shortner.Controllers
 {
@@ -26,10 +27,13 @@ namespace Url_Shortner.Controllers
 
             UrlService urlService = new UrlService();
             {
-                var shortUrl = urlService.makeShort();
+                
+                UrlPairDto shortUrl = urlService.makeShort(url);
                 //var urlModel = url.ToUrlDto();
-             
-                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Redirect, shortUrl);
+
+                //HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Redirect, shortUrl);
+
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, shortUrl);
                 return Ok(response);
             }
         }

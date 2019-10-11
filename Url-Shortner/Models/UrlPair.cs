@@ -15,6 +15,9 @@ namespace Url_Shortner.Models
         public string shortURL { get; set; }
 
         public string longURL { get; set; }
-        
+
+        public DateTime? DateCreate { get; set; }
+      
+
     }
 }
