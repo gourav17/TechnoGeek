@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Web.Http;
 using Url_Shortner.DataTransferObject;
+using Url_Shortner.Models;
 using Url_Shortner.Service;
 
 namespace Url_Shortner.Controllers
@@ -29,7 +30,7 @@ namespace Url_Shortner.Controllers
             {
 
                 UrlPairDto shortUrl = urlService.makeShort(url);
-              
+
                 HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, shortUrl);
                 return ResponseMessage(response);
             }
@@ -50,14 +51,14 @@ namespace Url_Shortner.Controllers
             UrlService urlService = new UrlService();
             {
 
-                UrlPairDto urlPairDto = urlService.Read(url);
-           
-             //   HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, urlPairDto);
+                UrlPairDto urlPairDto = urlService.Read(url).ToUrlDto();
+
+              
                 return Ok(urlPairDto);
             }
         }
 
-  
+
 
         [System.Web.Http.HttpGet]
         [System.Web.Http.Route("api/redirecttolongurl", Name = "RedirecttolongUrl")]
@@ -73,10 +74,50 @@ namespace Url_Shortner.Controllers
             UrlService urlService = new UrlService();
             {
 
-                UrlPairDto urlDataDto = urlService.Read(url);
+                UrlPairDto urlDataDto = urlService.Read(url).ToUrlDto();
+
+
+                if (urlDataDto is null)
+                {
+                    HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.NotFound, "Not Found");
+
+
+                    return ResponseMessage(response);
+                }
+                else
+                {
+                    return Redirect(urlDataDto.longURL);
+                }
+            }
+        }
+
+        [System.Web.Http.HttpDelete]
+        [System.Web.Http.Route("api/removeurl", Name = "removeUrl")]
+        public IHttpActionResult RemoveUrl(string url)
+        {
+            #region contracts
+            if (!Regex.IsMatch(url, ""))
+            {
+                return BadRequest("url is not in correct format. ");
+            }
+            #endregion
+
+            UrlService urlService = new UrlService();
+            {
+
+                UrlPair urlPair = urlService.Read(url);
+
+                if (urlPair is null)
+                {
+                    HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.NotFound, "Not Found");
+
+
+                    return ResponseMessage(response);
+                }
+                else
+                    urlService.Delete(urlPair);
               
-               // HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Redirect, urlDataDto.longURL);
-                return Redirect(urlDataDto.longURL);
+                return Ok(urlPair);
             }
         }
 
