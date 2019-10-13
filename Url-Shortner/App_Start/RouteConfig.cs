@@ -16,7 +16,7 @@ namespace Url_Shortner
             routes.MapRoute(
        name: "Redirect",
        url: "{shortUrl}",
-       defaults: new { controller = "UrlSearch", action = "Index" }
+       defaults: new { controller = "MyUrl", action = "Index" }
    );
 
             routes.MapRoute(
