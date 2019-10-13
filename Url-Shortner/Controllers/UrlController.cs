@@ -121,5 +121,25 @@ namespace Url_Shortner.Controllers
             }
         }
 
+        public string getLongUrl(string shortUrl)
+        {
+            #region contracts
+            if (!Regex.IsMatch(shortUrl, ""))
+            {
+                return "url is not in correct format. ";
+            }
+            #endregion
+
+            UrlService urlService = new UrlService();
+            {
+
+                UrlPairDto urlPairDto = urlService.Read(shortUrl).ToUrlDto();
+
+
+                return urlPairDto?.longURL;
+            }
+        }
+
+
     }
 }
