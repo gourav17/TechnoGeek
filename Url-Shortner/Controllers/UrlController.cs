@@ -28,10 +28,18 @@ namespace Url_Shortner.Controllers
 
             UrlService urlService = new UrlService();
             {
+                UrlPair resultRecord = urlService.ReadbyHash(url);
 
+                HttpResponseMessage response = new HttpResponseMessage();
+                if (resultRecord != null)
+                {
+                    UrlPairDto recordUrl = resultRecord.ToUrlDto();
+                    response = Request.CreateResponse(HttpStatusCode.Created, recordUrl);
+                    return ResponseMessage(response);
+
+                }
                 UrlPairDto shortUrl = urlService.makeShort(url);
-
-                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, shortUrl);
+                response = Request.CreateResponse(HttpStatusCode.Created, shortUrl);
                 return ResponseMessage(response);
             }
         }
@@ -53,7 +61,7 @@ namespace Url_Shortner.Controllers
 
                 UrlPairDto urlPairDto = urlService.Read(url).ToUrlDto();
 
-              
+
                 return Ok(urlPairDto);
             }
         }
@@ -115,8 +123,10 @@ namespace Url_Shortner.Controllers
                     return ResponseMessage(response);
                 }
                 else
+                {
                     urlService.Delete(urlPair);
-              
+                }
+
                 return Ok(urlPair);
             }
         }

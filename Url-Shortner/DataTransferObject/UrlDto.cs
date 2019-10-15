@@ -7,6 +7,7 @@ namespace Url_Shortner.DataTransferObject
     {
         public int urlID { get; set; }
 
+        public int urlHash { get; set; }
         public string shortURL { get; set; }
 
         public string longURL { get; set; }

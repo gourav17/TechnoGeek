@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Web;
@@ -47,9 +48,9 @@ namespace Url_Shortner.Controllers
         {
             using (var client = new HttpClient())
             {
-                //client.BaseAddress = new Uri("http://localhost:57329/api/");
-
-                client.BaseAddress = new Uri("https://url-shortner-dev-as.azurewebsites.net/api/");
+                
+                string hostSite = ConfigurationManager.AppSettings["hostsite"].ToString();
+                client.BaseAddress = new Uri(hostSite + "/api/");
 
             
                 //HTTP POST
