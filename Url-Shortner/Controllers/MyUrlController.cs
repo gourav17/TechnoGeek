@@ -52,9 +52,10 @@ namespace Url_Shortner.Controllers
                 string hostSite = ConfigurationManager.AppSettings["hostsite"].ToString();
                 client.BaseAddress = new Uri(hostSite + "/api/");
 
-            
+                var urlEncode = HttpUtility.UrlEncode(longUrl);
+
                 //HTTP POST
-                var postTask = client.PostAsJsonAsync("shortme?url=" + longUrl,longUrl);
+                var postTask = client.PostAsJsonAsync("shortme?url=" + urlEncode, urlEncode);
                 postTask.Wait();
 
                 var result = postTask.Result;

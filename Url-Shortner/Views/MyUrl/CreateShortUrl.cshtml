@@ -29,8 +29,8 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
           Enter Your Long URL :
-            <div class="col-md-10" style="size:100">
-                @Html.EditorFor(model => model.longURL, new { htmlAttributes = new { @class = "form-control", @style = "size:100"} })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.longURL, new { htmlAttributes = new { @class = "form-control", @style = "width:800px"} })
                 @Html.ValidationMessageFor(model => model.longURL, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -42,10 +42,8 @@
             Short URL :
             <br />
             <!--https://url-shortner-dev-as.azurewebsites.net/-->
-            <a href="https://url-shortner-dev-as.azurewebsites.net/@(Model?.shortURL)">https://url-shortner-dev-as.azurewebsites.net/@(Model?.shortURL)</a>
+            <a href="@System.Configuration.ConfigurationManager.AppSettings["hostsite"]/@(Model?.shortURL)" target = "_blank">@System.Configuration.ConfigurationManager.AppSettings["hostsite"]/@(Model?.shortURL)</a>
 
-<!--            <a href="http://localhost:57329/@(Model?.shortURL)">http://localhost:57329/@(Model?.shortURL)</a>
-    -->
     </div>
 
         <br />

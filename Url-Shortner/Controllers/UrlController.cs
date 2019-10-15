@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Net.Http;
 using System.Text.RegularExpressions;
+using System.Web;
 using System.Web.Http;
 using Url_Shortner.DataTransferObject;
 using Url_Shortner.Models;
@@ -26,7 +27,10 @@ namespace Url_Shortner.Controllers
             }
             #endregion
 
+          
             UrlService urlService = new UrlService();
+
+
             {
                 UrlPair resultRecord = urlService.ReadbyHash(url);
 
