@@ -14,6 +14,7 @@ namespace Url_Shortner.Models
 
         public int urlHash { get; set; }
 
+        [Required]
         public string shortURL { get; set; }
 
         [Required]

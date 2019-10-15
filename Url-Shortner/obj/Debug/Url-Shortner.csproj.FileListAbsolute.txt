@@ -182,3 +182,4 @@ E:\Gaurav\Work\Personal Projects\Ninetex\Project\Url-Shortner\Url-Shortner\obj\D
 E:\Gaurav\Work\Personal Projects\Ninetex\Project\Url-Shortner\Url-Shortner\obj\Debug\Url-Shortner.dll
 E:\Gaurav\Work\Personal Projects\Ninetex\Project\Url-Shortner\Url-Shortner\obj\Debug\Url-Shortner.pdb
 D:\Home\Study\Code\Url-Shortner\Url-Shortner\obj\Debug\Url_Shortner.Migrations.addedHash.resources
+D:\Home\Study\Code\Url-Shortner\Url-Shortner\obj\Debug\Url_Shortner.Migrations.required.resources
