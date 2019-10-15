@@ -46,8 +46,21 @@ namespace Url_Shortner.Controllers
         [HttpPost]
         public ActionResult CreateShortUrl(string longUrl)
         {
+            if (!ModelState.IsValid)
+            {
+                ViewData["isValid"] = "Url cannot be blank.";
+                return View();
+            }
             using (var client = new HttpClient())
             {
+                Uri uriResult;
+                bool validUrl = Uri.TryCreate(longUrl, UriKind.Absolute, out uriResult)
+                    && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
+                if(validUrl == false)
+                {
+                    ViewData["isValid"] = "Please Enter Valid URL.";
+                    return View();
+                }
                 
                 string hostSite = ConfigurationManager.AppSettings["hostsite"].ToString();
                 client.BaseAddress = new Uri(hostSite + "/api/");
