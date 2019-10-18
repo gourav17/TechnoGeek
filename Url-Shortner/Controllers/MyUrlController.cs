@@ -55,7 +55,7 @@ namespace Url_Shortner.Controllers
             {
                 Uri uriResult;
                 bool validUrl = Uri.TryCreate(longUrl, UriKind.Absolute, out uriResult)
-                    && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
+                    && (uriResult.Scheme == Uri.UriSchemeFtp || uriResult.Scheme == Uri.UriSchemeMailto || uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
                 if(validUrl == false)
                 {
                     ViewData["isValid"] = "Please Enter Valid URL.";
